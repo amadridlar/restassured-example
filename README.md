@@ -1,1 +1,1 @@
-# restassured-example
+# REST-assured

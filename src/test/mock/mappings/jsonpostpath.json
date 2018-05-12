@@ -1,13 +1,13 @@
 {
 	"request":{
-		"method":"GET",
-		"url":"/jsonpath"
+		"method":"POST",
+		"url":"/jsonpostpath"
 	},
 	"response":{
 		"status":200,
 		"headers":{
 			"Content-Type":"application/json"
 		},
-		"bodyFileName":"jsonResponse.json"
+		"bodyFileName":"jsonPostResponse.json"
 	}
 }

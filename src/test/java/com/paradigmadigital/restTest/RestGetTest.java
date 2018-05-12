@@ -27,9 +27,10 @@ public class RestGetTest {
 		
 		response=
 			given()
-				.request().headers("Content-Type", "application/Json")
+				.request()
+				.headers("Content-Type", "application/Json")
 			.when()
-				.get("/jsonpath")
+				.get("/jsongetpath")
 			.then()
 				.assertThat()
 					.statusCode(200)

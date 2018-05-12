@@ -1,0 +1,13 @@
+{
+	"request":{
+		"method":"GET",
+		"url":"/jsongetpath"
+	},
+	"response":{
+		"status":200,
+		"headers":{
+			"Content-Type":"application/json"
+		},
+		"bodyFileName":"jsonResponse.json"
+	}
+}

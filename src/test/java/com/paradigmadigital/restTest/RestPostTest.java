@@ -48,7 +48,7 @@ public class RestPostTest {
 	@Test
 	public void jsonPostBodyTest () {
 		jsonpath = response.jsonPath();
-		Assert.assertEquals("Your post was posted ok :)", jsonpath.get("message"));
+		Assert.assertEquals("Your post was posted successfully :)", jsonpath.get("message"));
 	}
 
 }

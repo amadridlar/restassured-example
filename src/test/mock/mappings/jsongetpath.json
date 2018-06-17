@@ -1,7 +1,15 @@
 {
 	"request":{
 		"method":"GET",
-		"url":"/jsongetpath"
+		"url":"/jsongetpath",
+		"headers" : {
+			"Content-Type": {
+				"contains" : "application/json"
+			},
+			"Accept" : {
+				"contains" : "application/json"
+			}
+		}
 	},
 	"response":{
 		"status":200,

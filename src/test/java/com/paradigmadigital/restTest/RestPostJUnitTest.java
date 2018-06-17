@@ -1,15 +1,17 @@
 package com.paradigmadigital.restTest;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 
+
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
-public class RestPostTest {
+public class RestPostJUnitTest {
 	
 	Response response;
 	JsonPath jsonpath;
@@ -23,11 +25,11 @@ public class RestPostTest {
 		"	}\r\n" + 
 		"}";
 
-	@Test
-	public void jsonPostTest() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		RestAssured.baseURI = mockUrl;
 		
-
+		response =
 			given()
 				.request()
 				.headers("Content-Type", "application/json", "Accept", "application/json")
@@ -35,12 +37,19 @@ public class RestPostTest {
 			.when()
 				.post("/jsonpostpath")
 			.then()
-				.assertThat()
-					.statusCode(200)
-					.contentType("application/Json")
-					.content("message", equalTo("Your post was posted successfully :)"));
-					
+				.extract().response();
 				
+	}
+
+	@Test
+	public void jsonPostStatusTest() {
+		Assert.assertEquals(200, response.getStatusCode());
+	}
+	
+	@Test
+	public void jsonPostBodyTest () {
+		jsonpath = response.jsonPath();
+		Assert.assertEquals("Your post was posted successfully :)", jsonpath.get("message"));
 	}
 
 }

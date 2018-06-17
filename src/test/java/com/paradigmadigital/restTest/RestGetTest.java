@@ -1,11 +1,7 @@
 package com.paradigmadigital.restTest;
 
-import static org.junit.Assert.*;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
 
-
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,13 +13,14 @@ import io.restassured.response.Response;
 
 public class RestGetTest {
 	
-	Response response;
+	Response response; 
 	JsonPath jsonPath;
 	Headers headers;
+	String mockUrl = "http://localhost:8080";
 
 	@Before
 	public void setUp() throws Exception {
-		RestAssured.baseURI = "http://localhost:8080"; 
+		RestAssured.baseURI = mockUrl; 
 		
 		response=
 			given()
@@ -38,6 +35,14 @@ public class RestGetTest {
 		
 		jsonPath = response.jsonPath();
 
+		
+	}
+	
+	@Test
+	public void printJsonResponse () {
+		String stringResponse;
+		stringResponse = response.asString();
+		System.out.println("==========ESTA ES LA RESPUESTA=========\n" + stringResponse);
 		
 	}
 

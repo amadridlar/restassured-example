@@ -2,7 +2,6 @@ package com.paradigmadigital.restTest;
 
 import static io.restassured.RestAssured.given;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +14,7 @@ public class RestPostTest {
 	
 	Response response;
 	JsonPath jsonpath;
+	String mockUrl = "http://localhost:8080";
 	String postString = "{\r\n" + 
 		"	\"name\":\"Johny\",\r\n" + 
 		"	\"lastName\":\"Reland\",\r\n" + 
@@ -26,7 +26,7 @@ public class RestPostTest {
 
 	@Before
 	public void setUp() throws Exception {
-		RestAssured.baseURI ="http://localhost:8080";
+		RestAssured.baseURI = mockUrl;
 		
 		response =
 			given()
